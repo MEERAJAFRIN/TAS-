@@ -1,0 +1,33 @@
+def calculate_cgpa(number_of_subjects):
+  """Calculates the CGPA given the number of subjects, grades, and credit hours."""
+  total_credit_hours = 0
+  total_weighted_grade_points = 0
+  for i in range(number_of_subjects):
+    grade = input("Enter the grade for subject {}: ".format(i + 1))
+    credit_hours = float(input("Enter the credit hours for subject {}: ".format(i + 1)))
+    grade_point = get_grade_point(grade)
+    weighted_grade_point = grade_point * credit_hours
+    total_credit_hours += credit_hours
+    total_weighted_grade_points += weighted_grade_point
+  cgpa = total_weighted_grade_points / total_credit_hours
+  return cgpa
+
+def get_grade_point(grade):
+  """Returns the grade point for the given grade."""
+  grade_point = 0
+  if grade == "A":
+    grade_point = 4
+  elif grade == "B":
+    grade_point = 3
+  elif grade == "C":
+    grade_point = 2
+  elif grade == "D":
+    grade_point = 1
+  elif grade == "F":
+    grade_point = 0
+  return grade_point
+
+if __name__ == "__main__":
+  number_of_subjects = int(input("Enter the number of subjects: "))
+  cgpa = calculate_cgpa(number_of_subjects)
+  print("Your CGPA is: {}".format(cgpa))
