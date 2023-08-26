@@ -1,0 +1,19 @@
+import forex_python.converter as converter
+
+def main():
+  # Get the amount and currency codes from the user
+  amount = float(input("Enter the amount to convert: "))
+  base_currency = input("Enter the base currency (e.g. USD): ")
+  target_currency = input("Enter the target currency (e.g. INR): ")
+
+  # Get the current exchange rate
+  exchange_rate = converter.get_rate(base_currency, target_currency)
+
+  # Convert the amount to the target currency
+  converted_amount = amount * exchange_rate
+
+  # Print the converted amount
+  print(f"{amount} {base_currency} is equal to {converted_amount} {target_currency}")
+
+if __name__ == "__main__":
+  main()
